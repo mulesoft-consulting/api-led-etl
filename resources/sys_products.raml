@@ -1,0 +1,107 @@
+#%RAML 1.0
+title: SYS_Product
+version: 1
+baseUri: http://localhost:8081/api
+
+types:
+  Product:
+    type: object
+    properties:
+      id:
+        required: false
+        type: string
+      name:
+        required: false
+        type: string
+      description:
+        required: false
+        type: string
+      unit_type:
+        required: false
+        type: string
+      unit_cost:
+        required: false
+        type: string
+      product_family:
+        required: false
+        type: string
+    example:
+      id: "1"
+      name: Vortex Premium 98
+      description: | 
+        'Vortex 98 contains a technologically advanced additive package, formulated to remove and prevent build-up of performance-robbing deposits and rust from critical parts of your vehicle’s fuel system. By keeping fuel systems clean, Vortex 98 helps engines perform. Vortex 98 has 25% more cleaning agent and friction reducer than Vortex 95, and is suitable for use in all vehicles designed to run on unleaded petrol.'
+      unit_type: litre
+      unit_cost: "1.50"
+      product_family: Vortex Premium
+  Products:
+    type: object
+    properties:
+      results:
+        type: integer
+      products:
+        type: Product[]
+    example:
+      results: 3
+      products: [
+      {
+      "id": "1",
+      "name": "Vortex Premium 98",
+      "description": "Vortex 98 contains a technologically advanced additive package, formulated to remove and prevent build-up of performance-robbing deposits and rust from critical parts of your vehicle’s fuel system. By keeping fuel systems clean, Vortex 98 helps engines perform.\nVortex 98 has 25% more cleaning agent and friction reducer than Vortex 95, and is suitable for use in all vehicles designed to run on unleaded petrol.",
+      "product_family": "Vortex Premium",
+      "unit_cost": "1.50",
+      "unit_type": "litre"
+      },
+      {
+      "id": "2",
+      "name": "Vortex Premium 95",
+      "description": "Vortex 95 is a high-performance premium unleaded petrol, specially formulated to clean your car’s fuel system while you drive. \n\nIt contains an advanced additive formulation that includes a cleaning agent to remove and prevent build-up of performance-robbing deposits from critical parts of your vehicle’s fuel system. By keeping your fuel system clean, Vortex 95 helps the engine perform at its best.",
+      "product_family": "Vortex Premium",
+      "unit_cost": "1.40",
+      "unit_type": "litre"
+      },
+      {
+      "id": "3",
+      "name": "Vortex Premium Diesel",
+      "description": "Vortex Premium Diesel is a high-performance diesel fuel specifically designed to meet increasingly demanding conditions found in new diesel engines. It keeps pace with the growing demand for cleaner, better and more advanced diesel fuels to keep engines healthier for longer. \nIn addition to its powerful cleaning agent, Vortex Premium Diesel features our next-generation foam inhibitor. This ensures no stable foam forms, to provide a cleaner and faster fill.",
+      "product_family": "Vortex Premium",
+      "unit_cost": "1.30",
+      "unit_type": "litre"
+      }
+    ]
+
+
+/products:
+  description: Collection of products.
+  get:
+    description: |
+      Retrieve a summary list of products that fulfill the provided query parameters.
+    responses: 
+      200:
+        body: 
+          application/json:
+            type: Products
+  /{product_id}:
+    description: Individual product.
+    get:
+      description: |
+        Retrieve details of a specific product
+      responses: 
+        200:
+          body: 
+            application/json:
+              type: Product
+    /unit_cost:
+      put:
+        description:  |
+          Update a product price
+        body: 
+          application/json:
+            example: |
+              {"unit_cost":"1.00"}
+        responses: 
+          200:
+            body: 
+              application/json:
+                example: |
+                  {"result":"Product {product_id} updated."}
+              
