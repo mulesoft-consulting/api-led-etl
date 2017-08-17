@@ -3,6 +3,14 @@ title: SYS_Product
 version: 1
 baseUri: http://localhost:8081/api
 
+traits:
+  secured:
+    queryParameters: 
+      client_id:
+        type: string
+      client_secret:
+        type: string
+
 types:
   Product:
     type: object
@@ -73,6 +81,7 @@ types:
 /products:
   description: Collection of products.
   get:
+    is: [secured]
     description: |
       Retrieve a summary list of products that fulfill the provided query parameters.
     responses: 
@@ -83,6 +92,7 @@ types:
   /{product_id}:
     description: Individual product.
     get:
+      is: [secured]
       description: |
         Retrieve details of a specific product
       responses: 
@@ -92,6 +102,7 @@ types:
               type: Product
     /unit_cost:
       put:
+        is: [secured]
         description:  |
           Update a product price
         body: 
