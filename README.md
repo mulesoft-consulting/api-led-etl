@@ -43,7 +43,7 @@ You will need:
 1. Download the Assets from the Repository
 
    You can just clone the repo locally to get access to everything. 
-1. Update the [API Led ETL Presentation](/tree/master/docs/API_Led_ETL_Presentation.pptx)
+1. Update the [API Led ETL Presentation](../../tree/master/docs/)
 
    Tailor the deck to the client's industry/use cases, as well as their systems and connectivity requirements. Likewise, update the further reading section.
 1. Prepare the MySQL Database
