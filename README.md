@@ -40,15 +40,15 @@ You will need:
 ### Step by Step Install and Configure 
 
 ## How to Run Example
-1. Download the Assets from the Repository
+1. Download the Assets from the [Repository](https://github.com/mulesoft-consulting/api-led-etl)
 
    You can just clone the repo locally to get access to everything. 
-1. Update the [API Led ETL Presentation](../../tree/master/docs/)
+1. Update the [API Led ETL Presentation](https://github.com/mulesoft-consulting/api-led-etl/tree/master/docs/)
 
    Tailor the deck to the client's industry/use cases, as well as their systems and connectivity requirements. Likewise, update the further reading section.
 1. Prepare the MySQL Database
 
-   Amend the product information to align to the company's industry/use cases, if possible. Scripts are provided for creating the tables
+   Amend the product information to align to the company's industry/use cases, if possible. [Scripts](https://github.com/mulesoft-consulting/api-led-etl/tree/master/resources/database) are provided for creating the tables and loading test data.
 1. Prepare AnyPoint Platform
 
    Create a clean business group if you plan to demonstrate creating the API in Design Center. Otherwise either copy the API into Design Center and publish to Exchange so that you can pull it from the cloud, or you will need to import the API file from your local repo on project creation in Studio.
