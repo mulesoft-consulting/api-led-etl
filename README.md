@@ -43,12 +43,12 @@ You will need:
 1. Download the Assets from the Repository
 
    You can just clone the repo locally to get access to everything. 
-1. Update the API Led ETL Presentation (link TBD)
+1. Update the [API Led ETL Presentation](../docs/API_Led_ETL_Presentation.pptx)
 
    Tailor the deck to the client's industry/use cases, as well as their systems and connectivity requirements. Likewise, update the further reading section.
 1. Prepare the MySQL Database
 
-   Amend the product information to align to the company's industry/use cases, if possible.
+   Amend the product information to align to the company's industry/use cases, if possible. Scripts are provided for creating the tables
 1. Prepare AnyPoint Platform
 
    Create a clean business group if you plan to demonstrate creating the API in Design Center. Otherwise either copy the API into Design Center and publish to Exchange so that you can pull it from the cloud, or you will need to import the API file from your local repo on project creation in Studio.
