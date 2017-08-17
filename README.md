@@ -41,13 +41,17 @@ You will need:
 
 ## How to Run Example
 1. Download the Assets from the Repository
-You can just clone the repo locally to get access to everything. 
+
+   You can just clone the repo locally to get access to everything. 
 1. Update the API Led ETL Presentation (link TBD)
-Tailor the deck to the client's industry/use cases, as well as their systems and connectivity requirements. Likewise, update the further reading section.
+
+   Tailor the deck to the client's industry/use cases, as well as their systems and connectivity requirements. Likewise, update the further reading section.
 1. Prepare the MySQL Database
-Amend the product information to align to the company's industry/use cases, if possible.
+
+   Amend the product information to align to the company's industry/use cases, if possible.
 1. Prepare AnyPoint Platform
-Create a clean business group if you plan to demonstrate creating the API in Design Center. Otherwise either copy the API into Design Center and publish to Exchange so that you can pull it from the cloud, or you will need to import the API file from your local repo on project creation in Studio.
+
+   Create a clean business group if you plan to demonstrate creating the API in Design Center. Otherwise either copy the API into Design Center and publish to Exchange so that you can pull it from the cloud, or you will need to import the API file from your local repo on project creation in Studio.
 
 ## Demo Script
 The first part of the deck is standard API Led. Switch out to your environment to show the platform as you go, or update the deck to use slideware for this phase.
