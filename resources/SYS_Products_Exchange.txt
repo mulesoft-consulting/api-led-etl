@@ -1,0 +1,24 @@
+# Summary
+This API exposes management of _Product_ business data. 
+
+Currently it support query and pricing updates, but will be extended over time to include full product management.
+
+As this is a System API, it is expected that a Process API/application or a Channel applciation/Experience API will invoke its operations.
+
+# Release History
+Date| Capability| Description
+--- | --- | ---
+AUG 2017 | GET /products | Query for all products which match query parameters.
+AUG 2017 | GET /products/{product_id} | Retrieve details of a specific product.
+AUG 2017 | PUT /products/{product_id}/unit_cost | Updates the unit cost (price) of a particular product.
+
+# Roadmap
+Date| Capability| Description
+--- | --- | ---
+TBD | POST /products | PLANNED: Create a new product in the catalogue.
+TBD | DELETE /products/{product_id} | PLANNED: Remove a product from the catalogue.
+
+# Contacts
+None yet available.
+
+Leave a comment in the feedback!
