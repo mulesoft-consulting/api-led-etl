@@ -82,7 +82,7 @@ You will need:
       1. Demonstrate calling the API to update pricing for a specific product, and see the changes propagate to the output file on next poll, as well as realtime calling the API using a utility such as Postman.
       1. Implement the Batch:
       
-         ![batchBuildPricingCSVReport](https://github.com/mulesoft-consulting/api-led-etl/blob/master/docs/batchProcessPricingUpdates.png)
+         ![batchProcessPricingUpdates](https://github.com/mulesoft-consulting/api-led-etl/blob/master/docs/batchProcessPricingUpdates.png)
       1. Demonstrate updating pricing on a previously generated file and having it load up, then generating an updated file automatically on next poll. Also use a utility such as Postman to demonstrate it is available in realtime too.
    1. Talk through extension possibilities including realtime pricing updates via an application, wrapping an approvals process in realtime, creating new products and archiving them, etc.
 
