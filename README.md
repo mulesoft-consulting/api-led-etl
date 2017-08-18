@@ -62,8 +62,7 @@ You will need:
 1. Talk through the additional slides discussing Poll and Batch capabilities.
 
    The slides cover two examples: Polling to create a product pricing report CSV, and Batch processing a pricing update file.
-   
-  1. Polling Report Generation
+   1. Polling Report Generation
   
      **Key point is leveraging the System API rather than integrating directly to the backend System-Of-Record.**
      - Generate the API project using the RAML specification either taken from Design Center or your local repo copy, depending how you did the Anypoint Platform walkthrough.
@@ -74,9 +73,9 @@ You will need:
      - Create a new Mule Configuration File called "batch". Explain how in a real architecture this would sit better in a process API and this is a simplification for the demo.
      - Implement the Poller flow:
        
-       ![batchBuildPricingCSVReport](https://github.com/mulesoft-consulting/api-led-etl/tree/master/docs/batchBuildPricingCSVReport.png)
+       ![batchBuildPricingCSVReport](https://github.com/mulesoft-consulting/api-led-etl/blob/master/docs/batchBuildPricingCSVReport.png)
      - Demonstrate file creation by running the Poller with a suitable polling period.
-  1. Batch File Processing
+   1. Batch File Processing
   
      **Key is leveraging the System API rather than integrating directly to the backend System-Of-Record.**
 
