@@ -10,7 +10,7 @@ Like many customers they needed to continue to support existing batch in- and ou
 This example doesn't cover all the possible patterns for implementing target and transition state architectures to meet these requirements, but should be easy to tailor to a specific client's use cases.
 
 ## Metadata 
-API Kit, Anypoint Platform, Studio, Database, Batch
+API Kit, Anypoint Platform, Studio, Database, Batch, Poll
 
 ## Use Case 
 The organisation had a large number of point to point batch integrations using CSV files which meant most business process updates happened over a 24 to 48 hour period. Data was always out of date and manual data entry to spreadsheets led to large numbers of errors and reconcilliation problems. 
@@ -37,7 +37,6 @@ You will need:
 * An Anypoint account
 * Studio
 * Access to a MySQL environment.
-### Step by Step Install and Configure 
 
 ## How to Run Example
 1. Download the Assets from the [Repository](https://github.com/mulesoft-consulting/api-led-etl)
@@ -52,11 +51,34 @@ You will need:
 1. Prepare AnyPoint Platform
 
    Create a clean business group if you plan to demonstrate creating the API in Design Center. Otherwise either copy the API into Design Center and publish to Exchange so that you can pull it from the cloud, or you will need to import the API file from your local repo on project creation in Studio.
+   
+1. Follow the Demo Script
 
 ## Demo Script
-The first part of the deck is standard API Led. Switch out to your environment to show the platform as you go, or update the deck to use slideware for this phase.
+1. The first part of the deck is standard API Led, and platform capabilities.
 
+   Switch out to your environment to show the platform as you go, or update the deck to use slideware for this phase.
 
+1. Talk through the additional slides discussing Poll and Batch capabilities.
+
+   The slides cover two examples: Polling to create a product pricing report CSV, and Batch processing a pricing update file.
+   
+  1. Polling Report Generation
+  
+     **Key point is leveraging the System API rather than integrating directly to the backend System-Of-Record.**
+     - Generate the API project using the RAML specification either taken from Design Center or your local repo copy, depending how you did the Anypoint Platform walkthrough.
+     - Implement GET /products against the database. (Use the snippets file and example files as accelerators).
+     - You do not need to implement GET /products/{product_id} for this demo.
+     - Good Practice Demo: Ensure you externalise your configuration params for the database.
+     - Demonstrate running and calling the API to get a list of products from the database, using a utility such as Postman.
+     - Create a new Mule Configuration File called "batch". Explain how in a real architecture this would sit better in a process API and this is a simplification for the demo.
+     - Implement the Poller flow:
+       
+       ![batchBuildPricingCSVReport](https://github.com/mulesoft-consulting/api-led-etl/tree/master/docs/batchBuildPricingCSVReport.png)
+     - Demonstrate file creation by running the Poller with a suitable polling period.
+  1. Batch File Processing
+  
+     **Key is leveraging the System API rather than integrating directly to the backend System-Of-Record.**
 
 ## Reference Material
 
