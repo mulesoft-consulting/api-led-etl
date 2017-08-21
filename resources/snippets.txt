@@ -1,0 +1,195 @@
+
+/products
+SELECT:
+select p.product_id, p.product_name, p.product_family, p.per_unit_type, p.per_unit_cost,  pd.long_text
+from products p, product_descriptions pd
+where p.product_id = pd.product_id
+order by p.product_id
+
+TRANSFORM:
+%dw 1.0
+%output application/json
+---
+{
+	results: sizeOf payload,
+	products: payload map ((payload01 , indexOfPayload01) -> {
+		id: payload01.product_id as :string,
+		name: payload01.product_name,
+		description: payload01.long_text,
+		product_family: payload01.product_family,
+		unit_cost: payload01.per_unit_cost,
+		unit_type: payload01.per_unit_type
+	})
+}
+
+RESPONSE:
+{
+  "results": 16,
+  "products": [
+    {
+      "id": "1",
+      "name": "Vortex Premium 98",
+      "description": "Vortex 98 contains a technologically advanced additive package, formulated to remove and prevent build-up of performance-robbing deposits and rust from critical parts of your vehicle’s fuel system. By keeping fuel systems clean, Vortex 98 helps engines perform.\nVortex 98 has 25% more cleaning agent and friction reducer than Vortex 95, and is suitable for use in all vehicles designed to run on unleaded petrol.",
+      "product_family": "Vortex Premium",
+      "unit_cost": "1.50",
+      "unit_type": "litre"
+    },
+    {
+      "id": "2",
+      "name": "Vortex Premium 95",
+      "description": "Vortex 95 is a high-performance premium unleaded petrol, specially formulated to clean your car’s fuel system while you drive. \n\nIt contains an advanced additive formulation that includes a cleaning agent to remove and prevent build-up of performance-robbing deposits from critical parts of your vehicle’s fuel system. By keeping your fuel system clean, Vortex 95 helps the engine perform at its best.",
+      "product_family": "Vortex Premium",
+      "unit_cost": "1.40",
+      "unit_type": "litre"
+    },
+    {
+      "id": "3",
+      "name": "Vortex Premium Diesel",
+      "description": "Vortex Premium Diesel is a high-performance diesel fuel specifically designed to meet increasingly demanding conditions found in new diesel engines. It keeps pace with the growing demand for cleaner, better and more advanced diesel fuels to keep engines healthier for longer. \nIn addition to its powerful cleaning agent, Vortex Premium Diesel features our next-generation foam inhibitor. This ensures no stable foam forms, to provide a cleaner and faster fill.",
+      "product_family": "Vortex Premium",
+      "unit_cost": "1.30",
+      "unit_type": "litre"
+    },
+    {
+      "id": "4",
+      "name": "Clean Tec D",
+      "description": "Caltex Clean TecD has a cleanliness of ISO 16/14/11 and its regular use can help increase the lifespan of injectors and fuel pumps, decrease frequency of changing on-board fuel filters and offer a more efficient and cleaner engine. All these benefits combined can also help to reduce costs and downtime.",
+      "product_family": "TecDiesel Advantage",
+      "unit_cost": "1.35",
+      "unit_type": "litre"
+    },
+    {
+      "id": "5",
+      "name": "Active Tec D",
+      "description": "The advanced formulation of Caltex ActiveTecD cleans-up and keeps-clean critical parts of the engine from performance robbing deposits. This can help restore engine power and improve fuel efficiency.",
+      "product_family": "TecDiesel Advantage",
+      "unit_cost": "1.38",
+      "unit_type": "litre"
+    },
+    {
+      "id": "6",
+      "name": "Power Tec D",
+      "description": "Caltex Power TecD combines the cleaning additives of ActiveTecD with the high level of cleanliness of Clean TecD, delivering one of the most advanced and forward-thinking fuels ever offered to Australian customers.",
+      "product_family": "TecDiesel Advantage",
+      "unit_cost": "1.42",
+      "unit_type": "litre"
+    },
+    {
+      "id": "7",
+      "name": "Bio E10 Unleaded",
+      "description": "Caltex Bio E10 Unleaded Petrol is a high quality unleaded petrol formulated with 10% ethanol. It meets the requirements of the Fuel Quality Standards Act 2000. Ethanol is a renewable non-fossil fuel which helps reduce greenhouse gas emissions and reliance on fossil fuels.",
+      "product_family": "Petrols",
+      "unit_cost": "1.42",
+      "unit_type": "litre"
+    },
+    {
+      "id": "8",
+      "name": "Unleaded Petrol",
+      "description": "Caltex Unleaded Petrol is designed for spark ignition engines and blended to meet the requirements of automotive engines fitted with catalytic converters designed to run on unleaded petrol. It has a minimum Research Octane Number (RON) of 91.",
+      "product_family": "Petrols",
+      "unit_cost": "1.44",
+      "unit_type": "litre"
+    },
+    {
+      "id": "9",
+      "name": "Opal Unleaded Petrol",
+      "description": "Caltex Opal Petrol is a regular unleaded petrol designed for spark ignition engines. It is low in the aromatic hydrocarbons which are associated with narcotic effects from sniffing petrol.",
+      "product_family": "Petrols",
+      "unit_cost": "1.46",
+      "unit_type": "litre"
+    },
+    {
+      "id": "10",
+      "name": "Extra Low Sulphur Diesel - Regular Diesel",
+      "description": "Caltex Extra Low Sulphur Diesel (XLSD) has a sulphur content of less than 10 ppm, making it suitable for diesel engines designed to meet the latest European and American emission standards and those equipped with exhaust after-treatment devices. It has excellent lubricity properties and meets or exceeds the Fuel Injection Equipment Manufacturers’ recommendation for diesel fuel lubricity. ",
+      "product_family": "Diesels",
+      "unit_cost": "1.20",
+      "unit_type": "litre"
+    },
+    {
+      "id": "11",
+      "name": "Highland Diesel",
+      "description": "Manufactured with a cloud point of approximately 2°C below the limit specified in AS 3570. Recommended for moderate to cool climates and areas that experience regular frosts in the winter months.",
+      "product_family": "Diesels",
+      "unit_cost": "1.22",
+      "unit_type": "litre"
+    },
+    {
+      "id": "12",
+      "name": "Alpine Diesel",
+      "description": "Manufactured with a cloud point of approximately 4°C below the limit specified in AS 3570. Recommended for use in alpine regions.",
+      "product_family": "Diesels",
+      "unit_cost": "1.24",
+      "unit_type": "litre"
+    },
+    {
+      "id": "13",
+      "name": "Bio B5 Diesel",
+      "description": "Caltex Bio B5 Diesel is a low sulphur distillate fuel containing up to 5% volume Biodiesel (Fatty Acid Methyl Ester – FAME). Biodiesel is a renewable non-fossil fuel, so the use of B5 assists users in reducing their CO2 footprint as well as other emissions such as carbon monoxide and particulate matter.",
+      "product_family": "Diesels",
+      "unit_cost": "1.25",
+      "unit_type": "litre"
+    },
+    {
+      "id": "14",
+      "name": "Bio B20 Diesel",
+      "description": "Caltex Bio B20 Diesel is a low sulphur distillate fuel containing up to 20% volume Biodiesel (Fatty Acid Methyl Ester – FAME). Biodiesel is a renewable non-fossil fuel, so the use of B20 assists users in reducing their CO2 footprint as well as other emissions such as carbon monoxide and particulate matter.",
+      "product_family": "Diesels",
+      "unit_cost": "1.28",
+      "unit_type": "litre"
+    },
+    {
+      "id": "15",
+      "name": "Compressed Natural Gas (CNG)",
+      "description": "Caltex CNG (compressed natural gas) is a high quality, gaseous fuel for use in engines specifically designed to operate with CNG. Compared to regular diesel, CNG is a clean burning fuel as it can reduce well-to-wheel emissions of greenhouse gases by up to 25%. Caltex CNG consists of natural gas (primarily methane) that has been compressed to less than 1% of its volume at standard atmospheric pressure. It is supplied as a compressed gas for delivery directly into CNG vehicles.",
+      "product_family": "Other Fuels",
+      "unit_cost": "1.10",
+      "unit_type": "litre"
+    },
+    {
+      "id": "16",
+      "name": "LPG (Autogas) ",
+      "description": "Caltex LPG (Autogas) is a premium quality, clean burning, liquefied petroleum gas. It is a high octane fuel suitable for all currently available automotive LPG engines or dual fuel LPG/Petrol engines. It has a gross calorific value of 47.7MJ/kg and a calculated Research Octane Number (RON) of approximately 100. Caltex LPG (Autogas) is composed mainly of propane and butane, with minor amounts of propylene and butylene. It meets the Fuel Standard (Autogas) Determination 2003.",
+      "product_family": "Other Fuels",
+      "unit_cost": "1.12",
+      "unit_type": "litre"
+    }
+  ]
+}
+
+
+/products/{product_id}
+SELECT:
+select p.product_id, p.product_name, p.product_family, p.per_unit_type, p.per_unit_cost,  pd.long_text
+from products p, product_descriptions pd
+where p.product_id = pd.product_id
+and p.product_id = #[flowVars.product_id]
+
+TRANSFORM:
+%dw 1.0
+%output application/json
+---
+{
+	id: payload[0].product_id,
+	name: payload[0].product_name,
+	description: payload[0].long_text,
+	product_family: payload[0].product_family,
+	unit_cost: payload[0].per_unit_cost,
+	unit_type: payload[0].per_unit_type
+}
+
+RESPONSE (1):
+{
+  "id": 1,
+  "name": "Vortex Premium 98",
+  "description": "Vortex 98 contains a technologically advanced additive package, formulated to remove and prevent build-up of performance-robbing deposits and rust from critical parts of your vehicle’s fuel system. By keeping fuel systems clean, Vortex 98 helps engines perform.\nVortex 98 has 25% more cleaning agent and friction reducer than Vortex 95, and is suitable for use in all vehicles designed to run on unleaded petrol.",
+  "product_family": "Vortex Premium",
+  "unit_cost": "1.50",
+  "unit_type": "litre"
+}
+
+PUT /products/{product_id}/unit_cost
+UPDATE:
+update products set per_unit_cost = #[payload.unit_cost] where product_id = #[flowVars.product_id]
+
+
