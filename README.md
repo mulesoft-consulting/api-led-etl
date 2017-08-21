@@ -62,23 +62,29 @@ You will need:
 1. Talk through the additional slides discussing Poll and Batch capabilities.
 
    The slides cover two examples: Polling to create a product pricing report CSV, and Batch processing a pricing update file.
-   
-  1. Polling Report Generation
+   1. Polling Report Generation
   
-     **Key point is leveraging the System API rather than integrating directly to the backend System-Of-Record.**
-     - Generate the API project using the RAML specification either taken from Design Center or your local repo copy, depending how you did the Anypoint Platform walkthrough.
-     - Implement GET /products against the database. (Use the snippets file and example files as accelerators).
-     - You do not need to implement GET /products/{product_id} for this demo.
-     - Good Practice Demo: Ensure you externalise your configuration params for the database.
-     - Demonstrate running and calling the API to get a list of products from the database, using a utility such as Postman.
-     - Create a new Mule Configuration File called "batch". Explain how in a real architecture this would sit better in a process API and this is a simplification for the demo.
-     - Implement the Poller flow:
+      **Key point is leveraging the System API rather than integrating directly to the backend System-Of-Record.**
+      1. Generate the API project using the RAML specification either taken from Design Center or your local repo copy, depending how you did the Anypoint Platform walkthrough.
+      1. Implement GET /products against the database. (Use the snippets file and example files as accelerators).
+      1. You do not need to implement GET /products/{product_id} for this demo.
+      1. Good Practice Demo: Ensure you externalise your configuration params for the database.
+      1. Demonstrate running and calling the API to get a list of products from the database using a utility such as Postman.
+      1. Create a new Mule Configuration File called "batch". Explain how in a real architecture this would sit better in a process API and this is a simplification for the demo.
+      1. Implement the Poller flow:
        
-       ![batchBuildPricingCSVReport](https://github.com/mulesoft-consulting/api-led-etl/tree/master/docs/batchBuildPricingCSVReport.png)
-     - Demonstrate file creation by running the Poller with a suitable polling period.
-  1. Batch File Processing
+         ![batchBuildPricingCSVReport](https://github.com/mulesoft-consulting/api-led-etl/blob/master/docs/batchBuildPricingCSVReport.png)
+      1. Demonstrate file creation by running the Poller with a suitable polling period.
+   1. Batch File Processing
   
-     **Key is leveraging the System API rather than integrating directly to the backend System-Of-Record.**
+      **Key point is leveraging the System API rather than integrating directly to the backend System-Of-Record.**
+      1. Implement PUT /products/{product_id}/unit_cost against the database.
+      1. Demonstrate calling the API to update pricing for a specific product, and see the changes propagate to the output file on next poll, as well as realtime calling the API using a utility such as Postman.
+      1. Implement the Batch:
+      
+         ![batchProcessPricingUpdates](https://github.com/mulesoft-consulting/api-led-etl/blob/master/docs/batchProcessPriceUpdates.png)
+      1. Demonstrate updating pricing on a previously generated file and having it load up, then generating an updated file automatically on next poll. Also use a utility such as Postman to demonstrate it is available in realtime too.
+   1. Talk through extension possibilities including realtime pricing updates via an application, wrapping an approvals process in realtime, creating new products and archiving them, etc.
 
 ## Reference Material
 
