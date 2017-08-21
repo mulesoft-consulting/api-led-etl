@@ -90,10 +90,10 @@ You will need:
 
 | Resource | Description |
 | -------- | ----------- |
-| /docs    | Image files for README. |
+| [/docs](https://github.com/mulesoft-consulting/api-led-etl/tree/master/docs)    | Image files for README. |
 |          | Template Powerpoint presentation. |
-| /resources/database | Table creation and population scripts. |
-| / resources | Exchange example markup text for asset. |
+| [/resources/database](https://github.com/mulesoft-consulting/api-led-etl/tree/master/resources/database) | Table creation and population scripts. |
+| [/ resources](https://github.com/mulesoft-consulting/api-led-etl/tree/master/resources) | Exchange example markup text for asset. |
 |             | Snippets file containing database select/updates, plus example transforms. |
 |             | Example responses and input files for generating types and enabling Datasense. |
 
